@@ -10,7 +10,7 @@ use Illuminate\Validation\Factory;
 class Transformer implements \JsonSerializable
 {
     /**
-     * @var Validator
+     * @var Factory
      */
     protected $validatorFactory;
 
@@ -199,7 +199,7 @@ class Transformer implements \JsonSerializable
 
         $caster = $this->casting[$key];
 
-        if (is_string($caster)) {
+        if (is_string($caster) && !is_callable($caster)) {
             switch ($caster) {
                 case 'int':
                 case 'integer':
@@ -233,7 +233,7 @@ class Transformer implements \JsonSerializable
         if (is_callable($caster)) {
             $casterArguments = [$value];
             if (isset($this->castingCallableExtraArguments[$key])) {
-                $casterArguments += $this->castingCallableExtraArguments[$key];
+                $casterArguments = array_merge($casterArguments, $this->castingCallableExtraArguments[$key]);
             }
             return call_user_func_array($caster, $casterArguments);
         }
