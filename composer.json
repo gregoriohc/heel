@@ -1,0 +1,33 @@
+{
+  "name": "gregoriohc/heel",
+  "description": "Data transformer and manager PHP package",
+  "keywords": ["php", "package", "data", "transformer", "manager"],
+  "homepage": "https://github.com/gregoriohc/heel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gregorio Hernández Caso",
+      "email": "gregoriohc@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/validation": "5.1.*|5.2.*|5.3.*|5.4.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "^0.9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gregoriohc\\Heel\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gregoriohc\\Heel\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
