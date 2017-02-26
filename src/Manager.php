@@ -118,4 +118,12 @@ class Manager
 
         return $this->outputData;
     }
+
+    /**
+     * @return string
+     */
+    public function toJson()
+    {
+        return json_encode($this->toArray());
+    }
 }
